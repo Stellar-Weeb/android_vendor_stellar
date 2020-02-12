@@ -357,6 +357,10 @@ ifeq ($(SHIPPING_WITH_LAWNCHAIR), true)
     $(call inherit-product, vendor/lawnchair/lawnchair.mk)
 endif
 
+ifeq ($(SHIPPING_WITH_GSANS), true)
+    include vendor/stellar/config/fonts.mk
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/stellar/config/partner_gms.mk
 
