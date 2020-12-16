@@ -944,3 +944,6 @@ function fixup_common_out_dir() {
 
 # Enable global ThinLTO
 export GLOBAL_THINLTO=true
+
+# Disable ABI checking
+export SKIP_ABI_CHECKS=true
