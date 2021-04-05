@@ -122,6 +122,10 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     Updater
 
+# Stellar packages
+PRODUCT_PACKAGES += \
+    GamingMode
+
 # Themes
 PRODUCT_PACKAGES += \
     LineageThemesStub \
