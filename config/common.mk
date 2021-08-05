@@ -187,6 +187,13 @@ endif
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
+# Gboard side padding
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_l=4 \
+    ro.com.google.ime.kb_pad_port_r=4 \
+    ro.com.google.ime.kb_pad_land_l=64 \
+    ro.com.google.ime.kb_pad_land_r=64
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/stellar/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/stellar/overlay/common
 
