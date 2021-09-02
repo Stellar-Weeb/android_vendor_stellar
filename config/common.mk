@@ -1,7 +1,7 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
-PRODUCT_BRAND ?= StellarOS
+PRODUCT_BRAND ?= StellarOS-WeebEdition
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -193,7 +193,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/stellar/overlay/common
 PRODUCT_VERSION_MAJOR = S1
 PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE := 0
-PRODUCT_VERSION_CODENAME = Aquarix
+PRODUCT_VERSION_CODENAME = Ai
 
 TARGET_BUILD_VARIANT_ID :=
 ifeq ($(STELLAR_BUILD_TYPE),gapps)
@@ -203,7 +203,7 @@ TARGET_GAPPS_ARCH := arm64
 endif
 TARGET_BUILD_VARIANT_ID := -GApps
 $(call inherit-product, vendor/gapps/$(TARGET_GAPPS_ARCH)/$(TARGET_GAPPS_ARCH)-vendor.mk)
-PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://raw.github.com/Stellar-Devices/OTA/stellar-S1/gapps/{device}.json
+PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://raw.github.com/Stellar-Weeb/OTA/stellar-S1/gapps/{device}.json
 endif
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)

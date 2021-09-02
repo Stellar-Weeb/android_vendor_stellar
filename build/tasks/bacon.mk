@@ -16,7 +16,7 @@
 # -----------------------------------------------------------------
 # Lineage OTA update package
 
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/StellarOS-$(LINEAGE_VERSION).zip
+LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/StellarOS-WeebEdition-$(LINEAGE_VERSION).zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
@@ -24,4 +24,9 @@ MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
 	$(hide) $(MD5) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).md5sum
+	@echo "// Stellar OS Weeb Edition //" >&2
+	@echo "" >&2
 	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+	@echo "" >&2
+	@echo "To get started, get your custom recovery up and slap this ROM in!" >&2
+	@echo "Based on Stellar OS, brought to you by Wind/owZ (@WindowZ414)." >&2
