@@ -46,8 +46,8 @@ custom_local_manifest = ".repo/local_manifests/default.xml"
 custom_default_revision = "stellar-S1"
 custom_github_revision = "lineage-18.1"
 custom_dependencies = "stellar.dependencies"
-org_manifest = "devices"  # leave empty if org is provided in manifest
-org_display = "Stellar-Devices"  # needed for displaying
+org_manifest = "stellar-weeb"  # leave empty if org is provided in manifest
+org_display = "Stellar-Weeb"  # needed for displaying
 
 github_auth = None
 
