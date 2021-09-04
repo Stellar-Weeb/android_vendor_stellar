@@ -176,17 +176,18 @@ def add_to_manifest(repos, fallback_branch=None):
     for repo in repos:
         repo_name = repo['repository']
         repo_path = repo['target_path']
-        if 'branch' in repo:
-            repo_branch=repo['branch']
-        else:
-            repo_branch=custom_default_revision
+        
         if 'remote' in repo:
             repo_remote=repo['remote']
+            repo_branch=custom_default_revision
         elif "/" not in repo_name:
             repo_remote=org_manifest
+            repo_branch=custom_default_revision
         elif "/" in repo_name:
             repo_remote="github"
             repo_branch=custom_github_revision
+        if 'branch' in repo:
+            repo_branch=repo['branch']
 
         if is_in_manifest(repo_path):
             print('already exists: %s' % repo_path)
