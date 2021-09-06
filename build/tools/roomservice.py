@@ -2,6 +2,7 @@
 # Copyright (C) 2012-2013, The CyanogenMod Project
 # Copyright (C) 2012-2015, SlimRoms Project
 # Copyright (C) 2016-2017, AOSiP
+# Copyright (C) 2021 Stellar OS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -251,10 +252,6 @@ def fetch_dependencies(repo_path, fallback_branch=None):
 
     for dependency in dependencies:
         if not is_in_manifest(dependency['target_path']):
-            if not dependency.get('branch'):
-                dependency['branch'] = (get_revision() or
-                                        custom_default_revision)
-
             fetch_list.append(dependency)
             syncable_repos.append(dependency['target_path'])
         else:
