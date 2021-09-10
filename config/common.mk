@@ -188,7 +188,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/stellar/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/stellar/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/stellar/overlay/common
 
 PRODUCT_VERSION_MAJOR = S1
 PRODUCT_VERSION_MINOR = 0
