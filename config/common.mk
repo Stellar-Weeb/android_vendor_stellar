@@ -61,6 +61,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.sip.voip.xml
 
+# Unlimited google photos backup
+PRODUCT_COPY_FILES += \
+    vendor/stellar/prebuilt/google/etc/sysconfig/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml
+
 # Enable wireless Xbox 360 controller support
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/Vendor_045e_Product_0719.kl
@@ -118,6 +122,10 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     Updater
 
+# Stellar packages
+PRODUCT_PACKAGES += \
+    GamingMode
+
 # Themes
 PRODUCT_PACKAGES += \
     LineageThemesStub \
@@ -165,6 +173,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
+# SoftAPManager
+PRODUCT_PACKAGES += \
+    SoftAPManager
+
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
@@ -187,24 +199,34 @@ endif
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/stellar/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/stellar/overlay/common
+# Gboard side padding
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_l=4 \
+    ro.com.google.ime.kb_pad_port_r=4 \
+    ro.com.google.ime.kb_pad_land_l=64 \
+    ro.com.google.ime.kb_pad_land_r=64
 
-PRODUCT_VERSION_MAJOR = S1
-PRODUCT_VERSION_MINOR = 1-BETA
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/stellar/overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/stellar/overlay/common
+
+PRODUCT_VERSION_MAJOR = 1
+PRODUCT_VERSION_MINOR = 1
 PRODUCT_VERSION_MAINTENANCE := 0
 PRODUCT_VERSION_CODENAME = Beru
+PRODUCT_STELLAR_EXTRAVERSION = -BETA
+PRODUCT_STELLAR_VARIANT :=
 
-TARGET_BUILD_VARIANT_ID :=
 ifeq ($(STELLAR_BUILD_TYPE),gapps)
 ifeq ($(TARGET_GAPPS_ARCH),)
 $(warning TARGET_GAPPS_ARCH is not set, defaulting to arm64)
 TARGET_GAPPS_ARCH := arm64
 endif
-TARGET_BUILD_VARIANT_ID := -GApps
+PRODUCT_STELLAR_VARIANT := -GApps
 $(call inherit-product, vendor/gapps/$(TARGET_GAPPS_ARCH)/$(TARGET_GAPPS_ARCH)-vendor.mk)
 PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://raw.github.com/Stellar-Weeb/OTA/stellar-S1/gapps/{device}.json
 endif
+
+TARGET_BUILD_VARIANT_ID := $(PRODUCT_STELLAR_VARIANT)$(PRODUCT_STELLAR_EXTRAVERSION)
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
     LINEAGE_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
