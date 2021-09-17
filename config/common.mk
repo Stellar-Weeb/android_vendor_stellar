@@ -124,7 +124,10 @@ PRODUCT_PACKAGES += \
 
 # Stellar packages
 PRODUCT_PACKAGES += \
-    GamingMode
+     OmniJaws \
+		 GamingMode \
+     SoftAPManager
+
 
 # Themes
 PRODUCT_PACKAGES += \
@@ -172,10 +175,6 @@ PRODUCT_PACKAGES += \
 # rsync
 PRODUCT_PACKAGES += \
     rsync
-
-# SoftAPManager
-PRODUCT_PACKAGES += \
-    SoftAPManager
 
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
