@@ -353,6 +353,10 @@ ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
 endif
 endif
 
+ifeq ($(SHIPPING_WITH_LAWNCHAIR), true)
+    $(call inherit-product, vendor/prebuilts/prebuilt/app/Lawnchair/lawnchair.mk)
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/stellar/config/partner_gms.mk
 
