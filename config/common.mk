@@ -354,7 +354,7 @@ endif
 endif
 
 ifeq ($(SHIPPING_WITH_LAWNCHAIR), true)
-    $(call inherit-product, vendor/prebuilts/prebuilt/app/Lawnchair/lawnchair.mk)
+    $(call inherit-product, vendor/lawnchair/lawnchair.mk)
 endif
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
