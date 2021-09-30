@@ -227,6 +227,11 @@ $(call inherit-product, vendor/gapps/$(TARGET_GAPPS_ARCH)/$(TARGET_GAPPS_ARCH)-v
 PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://raw.github.com/Stellar-Weeb/OTA/stellar-S1/gapps/{device}.json
 endif
 
+ifeq ($(STELLAR_BUILD_TYPE),auroraoss)
+PRODUCT_STELLAR_VARIANT := -AuroraOSS
+PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://raw.github.com/Stellar-Weeb/OTA/stellar-S1/auroraoss/{device}.json
+endif
+
 TARGET_BUILD_VARIANT_ID := $(PRODUCT_STELLAR_VARIANT)$(PRODUCT_STELLAR_EXTRAVERSION)
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
